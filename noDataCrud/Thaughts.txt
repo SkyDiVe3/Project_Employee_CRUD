@@ -1,0 +1,18 @@
+1- Trebuie o clasa care sa contina informatia despre un angajat standart 
+ 
+ 1.1- Informatia din clasa va fi una generala
+ 		(
+ 		private String Lastname
+ 		private String Firstname
+ 		private String Address
+ 		private String Telephone
+ 		private DateOfBirth
+ 		private Email
+ 		private IDNP
+
+ 		)
+
+
+ 1.2- Aceasta va avea subcalase precum angajati de diferite specialitati (additional-medium difficulty)
+
+2-Trebuie o clasa sa contina actiunile cu angajatii(managementEmployee:show,) 
