@@ -10,12 +10,11 @@ public class Director {
 
     /*----------------------------------------------------------------------------------*/
 //  This method creates an array of Employees
-    public static void createCompany(){
+    protected static void createCompany(){
         int nrOfEmployees;
         System.out.println("Enter how many employees you want to have in company:");
         nrOfEmployees = sc.nextInt();
         employees = new Employee[nrOfEmployees];
-
     }
     /*----------------------------------------------------------------------------------*/
     public static void addEmployee(){

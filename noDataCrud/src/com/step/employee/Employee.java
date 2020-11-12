@@ -22,7 +22,7 @@
 
             }
 
-            private  void  setCV() {
+            private void setCV() {
 
                     for (int x = 0;x < 7; x++){
                         switch (x){
