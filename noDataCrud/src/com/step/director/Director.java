@@ -10,7 +10,7 @@ public class Director {
 
     /*----------------------------------------------------------------------------------*/
 //  This method creates an array of Employees
-    protected static void createCompany(){
+    public static void createCompany(){
         int nrOfEmployees;
         System.out.println("Enter how many employees you want to have in company:");
         nrOfEmployees = sc.nextInt();
@@ -22,6 +22,48 @@ public class Director {
         employees[lastAddedEmployee()]= new Employee();
 
     }
+    /*----------------------------------------------------------------------------------*/
+    public static void getOneEmployee(String name){
+
+        for (int element = 0; element < employees.length; element++ ){
+
+            if (employees[element] != null && employees[element].getFirstname().equals(name)){
+                System.out.println("Employee " + "№" + element);
+                employees[element].getCV();
+                System.out.println("********************");
+            }
+
+        }
+
+    }
+    /*----------------------------------------------------------------------------------*/
+    public static void getOneEmployee(int id){
+
+        for (int element = 0; element < employees.length; element++ ){
+
+            if (employees[element] != null && element == id){
+                System.out.println("Employee " + "№" + element);
+                employees[element].getCV();
+                System.out.println("********************");
+            }
+
+        }
+
+    }
+    /*----------------------------------------------------------------------------------*/
+    public static void getAllEmployees(){
+        for (int element = 0; element < employees.length; element++ ){
+
+            if (employees[element] != null){
+                System.out.println("Employee " + "№" + element);
+                employees[element].getCV();
+                System.out.println("********************");
+            }
+
+        }
+
+    }
+
     /*----------------------------------------------------------------------------------*/
     public static boolean isEmptyCompany(){
         if (employees == null){
@@ -35,7 +77,7 @@ public class Director {
         boolean full = employees.length - (1 + lastAddedEmployee()) == 1;
         if(full){
 //            Increasing array by 50%
-            employees = (Employee[])resizeArray(employees, employees.length+(employees.length/2) );
+            employees = resizeArray(employees);
         }
     }
     /*----------------------------------------------------------------------------------*/
@@ -49,14 +91,14 @@ public class Director {
         return x;
     }
     /*----------------------------------------------------------------------------------*/
-    private static Object resizeArray (Object oldArray, int newSize) {
-        int oldSize = java.lang.reflect.Array.getLength(oldArray);
-        Class elementType = oldArray.getClass().getComponentType();
-        Object newArray = java.lang.reflect.Array.newInstance(elementType, newSize);
-        int preserveLength = Math.min(oldSize, newSize);
-        if (preserveLength > 0)
-            System.arraycopy(oldArray, 0, newArray, 0, preserveLength);
-        return newArray;
+    private static Employee[] resizeArray (Employee [] array) {
+            int oldLength = array.length;
+            int newLength = array.length + (array.length / 2);
+            Employee[] empty = new Employee[newLength];
+        for (int i = 0; i < array.length; i++) {
+            empty[i] = array[i];
+        }
+        return empty;
     }
 
 }

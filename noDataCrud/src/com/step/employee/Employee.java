@@ -14,6 +14,36 @@
             private String Email;
             private String IDNP;
 
+        public String getLastname() {
+            return Lastname;
+        }
+
+        public String getFirstname() {
+            return Firstname;
+        }
+
+        public String getAddress() {
+            return Address;
+        }
+
+        public String getTelephone() {
+            return Telephone;
+        }
+
+        public String getDateOfBirth() {
+            return DateOfBirth;
+        }
+
+        public String getEmail() {
+            return Email;
+        }
+
+        public String getIDNP() {
+            return IDNP;
+        }
+
+
+
 
 
             public Employee(){
@@ -47,18 +77,17 @@
                         case 6:this.IDNP = CV[x]; break;
                     }
                 }
-
             }
             public void getCV(){
                 for(int x = 0;x < 7; x++){
                     switch (x){
-                        case 0:System.out.println(this.Firstname); break;
-                        case 1:System.out.println(this.Lastname); break;
-                        case 2:System.out.println(this.Address); break;
-                        case 3:System.out.println(this.Telephone); break;
-                        case 4:System.out.println(this.DateOfBirth); break;
-                        case 5:System.out.println(this.Email); break;
-                        case 6:System.out.println(this.IDNP); break;
+                        case 0:System.out.println("Name =" + this.Firstname); break;
+                        case 1:System.out.println("Lastname =" +this.Lastname); break;
+                        case 2:System.out.println("Address =" +this.Address); break;
+                        case 3:System.out.println("Telephone =" +this.Telephone); break;
+                        case 4:System.out.println("Birthdate =" +this.DateOfBirth); break;
+                        case 5:System.out.println("Email =" +this.Email); break;
+                        case 6:System.out.println("IDNP =" +this.IDNP); break;
                     }
                 }
             }
