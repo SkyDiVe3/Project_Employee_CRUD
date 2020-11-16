@@ -21,7 +21,7 @@ import java.util.Scanner;
                 System.out.println("Please create a company and add some employees");
                 System.out.println("-------------------------");
                 System.out.println("Press enter to continue");
-                sc.next();
+                sc.nextByte();
                 return false;
             }
             else{
@@ -33,15 +33,18 @@ import java.util.Scanner;
                     }
                     case 2 : {
                         System.out.print("Insert name --->");
-                        getOneEmployee(sc.nextLine());
+                        getEmployee(sc.nextLine());
                         return true;
                     }
                     case 3 :{
                         System.out.print("Insert ID --->");
-                        getOneEmployee(sc.nextInt());
+                        getEmployee(sc.nextInt());
                         return true;
                     }
+                    case 4 :{
+                        return true;
 
+                    }
                     default: return true;
                 }
 
@@ -49,5 +52,34 @@ import java.util.Scanner;
 
         }
 
+        public static boolean getEditEmployee(int selection){
+            if (isEmptyCompany() && selection != 2){
+              System.out.println("Your company is empty");
+              System.out.println("Please create a company and add some employees");
+              System.out.println("-------------------------");
+              System.out.println("Press enter to continue");
+              sc.next();
+              return false;
+            }
+            else{
+              switch (selection){
+                  case 1: {
+                     int id;
+                      System.out.println("|SEARCH EMPLOYEE TO MODIFY|");
+                      System.out.print("Insert employee ID --->");
+                      id = sc.nextInt();
+                      getEmployee(id);
+                      setEditEmployee(id);
+                      return true;
+                  }
+                  case 2:{
+                      return true;
+                  }
+                  default:return true;
+              }
 
+            }
+
+            
+        }
     }

@@ -1,18 +1,18 @@
-1- Trebuie o clasa care sa contina informatia despre un angajat standart 
- 
- 1.1- Informatia din clasa va fi una generala
- 		(
- 		private String Lastname
- 		private String Firstname
- 		private String Address
- 		private String Telephone
- 		private DateOfBirth
- 		private Email
- 		private IDNP
+To does:
+1.!! Modify
+ -- by name
+ -- by id
 
- 		)
+2.! Inserting
+ --options to choose what to inser(name, telephone...)
 
+3.!! Delete
+    -- by name
+    -- by id
 
- 1.2- Aceasta va avea subcalase precum angajati de diferite specialitati (additional-medium difficulty)
+4.! Error treating
+    -- try{}catch()
 
-2-Trebuie o clasa sa contina actiunile cu angajatii(managementEmployee:show,) 
+5.!! Organize the code
+
+6.!! toUpperCase...inseration

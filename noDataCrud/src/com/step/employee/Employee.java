@@ -6,13 +6,43 @@
             private static Scanner sc = new Scanner(System.in);
 
             private String[] CV = new String[7];
-            private String Lastname;
             private String Firstname;
+            private String Lastname;
             private String Address;
             private String Telephone;
             private String DateOfBirth;
             private String Email;
             private String IDNP;
+
+        public void setLastname(String lastname) {
+            Lastname = lastname;
+        }
+
+        public void setFirstname(String firstname) {
+            Firstname = firstname;
+        }
+
+        public void setAddress(String address) {
+            Address = address;
+        }
+
+        public void setTelephone(String telephone) {
+            Telephone = telephone;
+        }
+
+        public void setDateOfBirth(String dateOfBirth) {
+            DateOfBirth = dateOfBirth;
+        }
+
+        public void setEmail(String email) {
+            Email = email;
+        }
+
+        public void setIDNP(String IDNP) {
+            this.IDNP = IDNP;
+        }
+
+/******************************************************/
 
         public String getLastname() {
             return Lastname;
@@ -42,16 +72,14 @@
             return IDNP;
         }
 
-
-
-
-
+        /** Constructor */
             public Employee(){
 
                 setCV();
 
             }
 
+        /** Setter for CV*/
             private void setCV() {
 
                     for (int x = 0;x < 7; x++){
@@ -81,13 +109,13 @@
             public void getCV(){
                 for(int x = 0;x < 7; x++){
                     switch (x){
-                        case 0:System.out.println("Name =" + this.Firstname); break;
-                        case 1:System.out.println("Lastname =" +this.Lastname); break;
-                        case 2:System.out.println("Address =" +this.Address); break;
-                        case 3:System.out.println("Telephone =" +this.Telephone); break;
-                        case 4:System.out.println("Birthdate =" +this.DateOfBirth); break;
-                        case 5:System.out.println("Email =" +this.Email); break;
-                        case 6:System.out.println("IDNP =" +this.IDNP); break;
+                        case 0:System.out.println('1' + " Name =" + this.Firstname); break;
+                        case 1:System.out.println('2' + " Lastname =" +this.Lastname); break;
+                        case 2:System.out.println('3' + " Address =" +this.Address); break;
+                        case 3:System.out.println('4' + " Telephone =" +this.Telephone); break;
+                        case 4:System.out.println('5' + " Birthdate =" +this.DateOfBirth); break;
+                        case 5:System.out.println('6' + " Email =" +this.Email); break;
+                        case 6:System.out.println('7' + " IDNP =" +this.IDNP); break;
                     }
                 }
             }

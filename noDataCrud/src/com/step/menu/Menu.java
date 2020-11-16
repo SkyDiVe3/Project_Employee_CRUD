@@ -26,12 +26,13 @@ public class Menu {
         switch (selection){
             case 1 : addEmployeeMenu(); break;
             case 2 : readEmployeeMenu(); break;
-            case 3 :
+            case 3 : editEmployeeMenu(); break;
             case 4 :
             case 5 :  break;
         }
 
     }
+
     protected static void addEmployeeMenu(){
         int selection;
 
@@ -61,6 +62,7 @@ public class Menu {
             case 5 : startMenu(); break;
         }
     }
+
     protected static void readEmployeeMenu(){
         int selection;
         boolean step;
@@ -86,10 +88,35 @@ public class Menu {
         else {
             System.out.println("Press enter to continue");
             input.next();
-            readEmployeeMenu();
+            startMenu();
         }
 
     }
+
+    protected static void editEmployeeMenu(){
+        int selection;
+        boolean step;
+        for(int n = 0; n < 10; n++ ){
+            System.out.println();
+        }
+
+        System.out.println(" |EDITING EMPLOYEE MENU|");
+        System.out.println("Choose from these choices");
+        System.out.println("-------------------------");
+        System.out.println("1 - MODIFY EMPLOYEE BY ID ");
+        System.out.println("2 - BACK");
+
+        System.out.print("INSERT--->");
+        selection = input.nextInt();
+        step=ManageEmployee.getEditEmployee(selection);
+        if (step == false) addEmployeeMenu();
+        else {
+            System.out.println("Press enter to continue");
+            input.next();
+            startMenu();
+        }
+    }
+
     protected static void deleteEmployeeMenu(){
         /* Well, you can't really delete an element from an array, like you said.
          * Best you can hope for is to give the removed element a null value instead. Thus leaving it empty.
