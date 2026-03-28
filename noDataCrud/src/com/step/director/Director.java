@@ -2,7 +2,6 @@ package com.step.director;
 
 import com.step.employee.Employee;
 
-import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Director {
@@ -68,46 +67,63 @@ public class Director {
     /*----------------------------------------------------------------------------------*/
     public static void setEditEmployee(int id) {
         boolean editing = true ;
+        System.out.println("*************************");
+        System.out.println("Choose what you want to edit for this employee:");
+        System.out.println("1. First name");
+        System.out.println("2. Last name");
+        System.out.println("3. Address");
+        System.out.println("4. Telephone");
+        System.out.println("5. Birthdate");
+        System.out.println("6. Email");
+        System.out.println("7. IDNP");
         System.out.println("8. Exit");
         System.out.println("*************************");
-        System.out.println("Choose what you want to edit for this employee");
         while(editing){
             System.out.print("Insert -->");
             switch (sc.nextInt()){
                 case 1: {
                     employees[id].setFirstname(switchEditShow("firstname")) ;
-                    System.out.println("Changed successfull");
-                    sc.nextByte();
+                    System.out.println("Changed successfully");
                     break;
                 }
                 case 2: {
-                    employees[id].setFirstname(switchEditShow("lastname")) ;
+                    employees[id].setLastname(switchEditShow("lastname")) ;
+                    System.out.println("Changed successfully");
                     break;
                 }
                 case 3: {
-                    employees[id].setFirstname(switchEditShow("address")) ;
+                    employees[id].setAddress(switchEditShow("address")) ;
+                    System.out.println("Changed successfully");
                     break;
                 }
                 case 4: {
-                    employees[id].setFirstname(switchEditShow("telephone")) ;
+                    employees[id].setTelephone(switchEditShow("telephone")) ;
+                    System.out.println("Changed successfully");
                     break;
                 }
                 case 5: {
-                    employees[id].setFirstname(switchEditShow("birthdate")) ;
+                    employees[id].setDateOfBirth(switchEditShow("birthdate")) ;
+                    System.out.println("Changed successfully");
                     break;
                 }
                 case 6: {
-                    employees[id].setFirstname(switchEditShow("email")) ;
+                    employees[id].setEmail(switchEditShow("email")) ;
+                    System.out.println("Changed successfully");
                     break;
                 }
                 case 7: {
-                    employees[id].setFirstname(switchEditShow("IDNP")) ;
+                    employees[id].setIDNP(switchEditShow("IDNP")) ;
+                    System.out.println("Changed successfully");
                     break;
                 }
                 case 8:{
                     System.out.println("|Completed editing|");
                     System.out.println("  |Exit to main|");
                     editing = false;
+                    break;
+                }
+                default: {
+                    System.out.println("Invalid option. Please choose 1-8.");
                 }
             }
         }
@@ -115,8 +131,39 @@ public class Director {
     private static String  switchEditShow(String info){
         String editResult;
         System.out.print("New " + info + " = ");
+        sc.nextLine(); // consume leftover newline from previous nextInt()
         editResult = sc.nextLine();
         return editResult;
+    }
+    /*----------------------------------------------------------------------------------*/
+    /**This method removes an employee by their array ID and compacts the array */
+    public static void removeEmployee(int id) {
+        if (id < 0 || id >= employees.length || employees[id] == null) {
+            System.out.println("No employee found with ID: " + id);
+            return;
+        }
+        for (int i = id; i < employees.length - 1; i++) {
+            employees[i] = employees[i + 1];
+        }
+        employees[employees.length - 1] = null;
+        System.out.println("Employee deleted successfully.");
+    }
+    /*----------------------------------------------------------------------------------*/
+    /**This method removes all employees whose first name matches the given name */
+    public static void removeEmployee(String name) {
+        boolean found = false;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && employees[i].getFirstname().equalsIgnoreCase(name)) {
+                for (int j = i; j < employees.length - 1; j++) {
+                    employees[j] = employees[j + 1];
+                }
+                employees[employees.length - 1] = null;
+                found = true;
+                i--; // re-check same index after shift
+            }
+        }
+        if (!found) System.out.println("No employee found with name: " + name);
+        else System.out.println("Employee(s) deleted successfully.");
     }
     /*----------------------------------------------------------------------------------*/
     public static boolean isEmptyCompany(){
@@ -128,7 +175,7 @@ public class Director {
     /**This method verify if the array of employees is full, if it's full
     then its called resizeArray method to expand it*/
     private static void isFullCompany(){
-        boolean full = employees.length - (1 + lastAddedEmployee()) == 1;
+        boolean full = lastAddedEmployee() >= employees.length;
         if(full){
 //            Increasing array by 50%
             employees = resizeArray(employees);
@@ -156,11 +203,5 @@ public class Director {
         return empty;
     }
     /*----------------------------------------------------------------------------------*/
-
-    private static int[] searchEmployee(Employee [] employees){
-        int searchResults [] = new int[employees.length];
-
-        return searchResults;
-    }
 
 }

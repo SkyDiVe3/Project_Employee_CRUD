@@ -82,4 +82,38 @@ import java.util.Scanner;
 
             
         }
+
+        public static boolean getDeleteEmployee(int selection){
+            if (isEmptyCompany() && selection != 3){
+                System.out.println("Your company is empty");
+                System.out.println("Please create a company and add some employees");
+                System.out.println("-------------------------");
+                System.out.println("Press enter to continue");
+                sc.next();
+                return false;
+            }
+            else{
+                switch (selection){
+                    case 1: {
+                        System.out.println("|DELETE EMPLOYEE BY ID|");
+                        System.out.print("Insert employee ID --->");
+                        int id = sc.nextInt();
+                        removeEmployee(id);
+                        return true;
+                    }
+                    case 2: {
+                        System.out.println("|DELETE EMPLOYEE BY NAME|");
+                        System.out.print("Insert employee name --->");
+                        sc.nextLine(); // consume leftover newline
+                        String name = sc.nextLine();
+                        removeEmployee(name);
+                        return true;
+                    }
+                    case 3:{
+                        return true;
+                    }
+                    default: return true;
+                }
+            }
+        }
     }
