@@ -1,7 +1,6 @@
     package com.step.employee;
 
     import java.util.Scanner;
-    import java.time.LocalDate;
     public class Employee {
             private static Scanner sc = new Scanner(System.in);
 
@@ -14,12 +13,18 @@
             private String Email;
             private String IDNP;
 
+        /** Capitalizes the first letter and lowercases the rest */
+        private static String capitalize(String s) {
+            if (s == null || s.isEmpty()) return s;
+            return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
+        }
+
         public void setLastname(String lastname) {
-            Lastname = lastname;
+            Lastname = capitalize(lastname);
         }
 
         public void setFirstname(String firstname) {
-            Firstname = firstname;
+            Firstname = capitalize(firstname);
         }
 
         public void setAddress(String address) {
@@ -84,8 +89,8 @@
 
                     for (int x = 0;x < 7; x++){
                         switch (x){
-                            case 0:System.out.println("Enter Name:"); CV[x] = sc.nextLine(); break;
-                            case 1:System.out.println("Enter Surname:"); CV[x] = sc.nextLine(); break;
+                            case 0:System.out.println("Enter Name:"); CV[x] = capitalize(sc.nextLine()); break;
+                            case 1:System.out.println("Enter Surname:"); CV[x] = capitalize(sc.nextLine()); break;
                             case 2:System.out.println("Enter Address:"); CV[x] = sc.nextLine(); break;
                             case 3:System.out.println("Enter Phone:"); CV[x] = sc.nextLine(); break;
                             case 4:System.out.println("Enter Birthdate:"); CV[x] = sc.nextLine(); break;
